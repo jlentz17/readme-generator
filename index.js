@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
-
+const fs = require("fs");
 
 // TODO: Create an array of questions for user input
 const promptUser = () => {
@@ -11,12 +11,12 @@ const promptUser = () => {
   // Generate Your README
   // =================
   // `);
-  
+
   //   // If there's no 'projects' array property, create one
   //   if (!userData.projects) {
   //     userData.projects = [];
   //   }
-return inquirer
+  return inquirer
     .prompt([
       {
         type: "input",
@@ -29,8 +29,8 @@ return inquirer
             console.log("You need to enter the name of your app!");
             return false;
           }
-        }
-      },  
+        },
+      },
       {
         type: "input",
         name: "description",
@@ -60,7 +60,8 @@ return inquirer
       {
         type: "input",
         name: "usage",
-        message: "Provide a examples and instructions for your apps use (Required)",
+        message:
+          "Provide a examples and instructions for your apps use (Required)",
         validate: (usageInput) => {
           if (usageInput) {
             return true;
@@ -78,7 +79,9 @@ return inquirer
           if (testsInput) {
             return true;
           } else {
-            console.log("You need to enter info on the tests needed to be performed for this app!");
+            console.log(
+              "You need to enter info on the tests needed to be performed for this app!"
+            );
             return false;
           }
         },
@@ -97,21 +100,21 @@ return inquirer
         },
       },
       {
-          type: "input",
-          name: "gitHub",
-          message: "Github profile: (Required)",
-          when: function (answer) {
-              validate: (gitPortfolioInput) => {
-                  if (gitPortfolioInput) {
-                      return answer.shareGithub;
-                    //   return true;
+        type: "input",
+        name: "gitHub",
+        message: "Github profile: (Required)",
+        when: function (answer) {
+          validate: (gitPortfolioInput) => {
+            if (gitPortfolioInput) {
+              return answer.shareGithub;
+              //   return true;
             } else {
-                    console.log("You need to enter a GitHub link!");
-                    return false;
+              console.log("You need to enter a GitHub link!");
+              return false;
             }
-        }
+          };
+        },
       },
-    },
       {
         type: "confirm",
         name: "shareEmail",
@@ -126,21 +129,21 @@ return inquirer
         },
       },
       {
-          type: "input",
-          name: "email",
-          message: "Email: (Required)",
-          when: function (answer) {
-              validate: (gitPortfolioInput) => {
-                  if (gitPortfolioInput) {
-                      return answer.shareEmail;
-                    //   return true;
-                } else {
-                    console.log("You need to enter an email address!");
-                    return false;
-                }
-        }
+        type: "input",
+        name: "email",
+        message: "Email: (Required)",
+        when: function (answer) {
+          validate: (gitPortfolioInput) => {
+            if (gitPortfolioInput) {
+              return answer.shareEmail;
+              //   return true;
+            } else {
+              console.log("You need to enter an email address!");
+              return false;
+            }
+          };
+        },
       },
-    },
       {
         type: "confirm",
         name: "shareWebsite",
@@ -155,72 +158,79 @@ return inquirer
         },
       },
       {
-          type: "input",
-          name: "website",
-          message: "Website: (Required)",
-          when: function (answer) {
-              validate: (websiteInput) => {
-                  if (websiteInput) {
-                      return answer.shareWebsite;
-                    //   return true;
-                } else {
-                    console.log("You need to enter an email address!");
-                    return false;
-                }
-        }
-    },
-  },
+        type: "input",
+        name: "website",
+        message: "Website: (Required)",
+        when: function (answer) {
+          validate: (websiteInput) => {
+            if (websiteInput) {
+              return answer.shareWebsite;
+              //   return true;
+            } else {
+              console.log("You need to enter an email address!");
+              return false;
+            }
+          };
+        },
+      },
       {
-          type: "list",
-          name: "badges",
-          message: "What license do have? (Required)",
-          choices: ["GPL 3.0", "MIT", "BSD 3", "APACHE 2.0", "None"],
-          validate: (badgeInput) => {
-              if (badgeInput) {
-                  return true;
-                } else {
-                    console.log("You need to enter a license!");
-                    return false;
-                }
-            },
+        type: "list",
+        name: "badges",
+        message: "What license do have? (Required)",
+        choices: ["GPL 3.0", "MIT", "BSD 3", "APACHE 2.0", "None"],
+        validate: (badgeInput) => {
+          if (badgeInput) {
+            return true;
+          } else {
+            console.log("You need to enter a license!");
+            return false;
+          }
         },
-        {
-          type: "checkbox",
-          name: "languages",
-          message: "What did you this project with? (Check all that apply)",
-          choices: [
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "ES6",
-            "jQuery",
-            "Bootstrap",
-            "Node",
-          ],
-        },
-      ]
-    )
-    .then(readMe => {
-       return generateMarkdown(readMe);
-    })
-  }
-    // inquirer
-    // .then((projectData) => {
-    //   portfolioData.projects.push(projectData);
-    //   if (projectData.confirmAddProject) {
-    //     return promptProject(portfolioData);
-    //   } else {
-    //     return portfolioData;
-    //   }
-    // });
+      },
+      {
+        type: "checkbox",
+        name: "languages",
+        message: "What did you this project with? (Check all that apply)",
+        choices: [
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "ES6",
+          "jQuery",
+          "Bootstrap",
+          "Node",
+        ],
+      },
+    ])
+    .then((readMe) => {
+      return generateMarkdown(readMe);
+    });
+};
+// inquirer
+// .then((projectData) => {
+//   portfolioData.projects.push(projectData);
+//   if (projectData.confirmAddProject) {
+//     return promptProject(portfolioData);
+//   } else {
+//     return portfolioData;
+//   }
+// });
+const readAndWriteFile = function (readme) {
+  fs.readFile("./utils/generateMarkdown", readme, (err) => {
+    if (err) {
+      return console.log(err);
+    }
 
-    // fs.writeFile("./utils/generateMarkdown", , err => {
-    //         if (err) {
-    //           return console.log(err);
-    //         }
-        
-    //         console.log("Success!");
-    //       });
+    console.log("Success!");
+  });
+  fs.writeFile("./READMEtest.md", readme, (err) => {
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log("Success!");
+  });
+};
 
 // TODO: Create a function to initialize app
 // function init(questions) {
