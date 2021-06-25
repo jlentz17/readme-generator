@@ -1,20 +1,22 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
-const generateMarkdownPage = require("./utils/generateMarkdown");
+const fs = require("fs")
+const generateMarkdown = require("./utils/generateMarkdown");
 
 
 // TODO: Create an array of questions for user input
-const promptUser = (UserData) => {
-    console.log(`
-  =================
-  Generate Your README
-  =================
-  `);
+const promptUser = () => {
+  //   console.log(userData)
+  //   console.log(`
+  // =================
+  // Generate Your README
+  // =================
+  // `);
   
-    // If there's no 'projects' array property, create one
-    if (!userData.projects) {
-      userData.projects = [];
-    }
+  //   // If there's no 'projects' array property, create one
+  //   if (!userData.projects) {
+  //     userData.projects = [];
+  //   }
 return inquirer
     .prompt([
       {
@@ -28,8 +30,8 @@ return inquirer
             console.log("You need to enter the name of your app!");
             return false;
           }
-        },
-      },
+        }
+      },  
       {
         type: "input",
         name: "description",
@@ -104,11 +106,13 @@ return inquirer
                   if (gitPortfolioInput) {
                       return answer.shareGithub;
                     //   return true;
-                } else {
+            } else {
                     console.log("You need to enter a GitHub link!");
                     return false;
-                }
-        },
+            }
+        }
+      },
+    },
       {
         type: "confirm",
         name: "shareEmail",
@@ -135,7 +139,9 @@ return inquirer
                     console.log("You need to enter an email address!");
                     return false;
                 }
-        },
+        }
+      },
+    },
       {
         type: "confirm",
         name: "shareWebsite",
@@ -162,7 +168,9 @@ return inquirer
                     console.log("You need to enter an email address!");
                     return false;
                 }
-        },
+        }
+    },
+  },
       {
           type: "list",
           name: "badges",
@@ -191,36 +199,41 @@ return inquirer
             "Node",
           ],
         },
-     
-    .then((projectData) => {
-      portfolioData.projects.push(projectData);
-      if (projectData.confirmAddProject) {
-        return promptProject(portfolioData);
-      } else {
-        return portfolioData;
-      }
-    });
+      ]
+    )
+    .then(readMe => {
+       return generateMarkdown(readMe);
+    })
+  }
+    // inquirer
+    // .then((projectData) => {
+    //   portfolioData.projects.push(projectData);
+    //   if (projectData.confirmAddProject) {
+    //     return promptProject(portfolioData);
+    //   } else {
+    //     return portfolioData;
+    //   }
+    // });
+
+    // fs.writeFile("./utils/generateMarkdown", , err => {
+    //         if (err) {
+    //           return console.log(err);
+    //         }
+        
+    //         console.log("Success!");
+    //       });
 
 // TODO: Create a function to initialize app
-function init() {}
+// function init(questions) {
+//     inquirer.prompt(questions)
+//     .then((userData) => {
+//       // pass data into renderLicenseBadge
+//       renderLicenseBadge(userData);
+//       // call writeToFile function with file name and calling generateMarkdown function
+//       writeToFile("./READMEtest.md", generateMarkdown(userData));
+//     });
+//   }
 
 // Function call to initialize app
-init();
-
-  
-
-// Write the user response to a file by chaining the below callback method to the prompt above.
-const fileWrite = function (data) {
-  console.log("fileWrite", data);
-  // Bonus: Generate the name of your user file from their input
-  // Your bonus code here
-  //
-
-  fs.writeFile("./index.txt", JSON.stringify(data, null, "\t"), function (err) {
-    if (err) {
-      return console.log(err);
-    }
-
-    console.log("Success!");
-  });
-};
+// init()
+promptUser();
