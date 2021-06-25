@@ -13,6 +13,7 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(readMe) {
   console.log(readMe)
+  // Make template!!!
   return `# ${readMe.name}
 
 `;
