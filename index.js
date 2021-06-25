@@ -1,6 +1,5 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
-const fs = require("fs")
 const generateMarkdown = require("./utils/generateMarkdown");
 
 
@@ -21,7 +20,7 @@ return inquirer
     .prompt([
       {
         type: "input",
-        name: "name",
+        name: "title",
         message: "What is the title of your app? (Required)",
         validate: (appInput) => {
           if (appInput) {
