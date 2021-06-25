@@ -202,47 +202,56 @@ const promptUser = () => {
         ],
       },
     ])
-    .then((readMe) => {
-      return generateMarkdown(readMe);
-    });
-};
-// inquirer
-// .then((projectData) => {
-//   portfolioData.projects.push(projectData);
-//   if (projectData.confirmAddProject) {
-//     return promptProject(portfolioData);
-//   } else {
-//     return portfolioData;
-//   }
-// });
-const readAndWriteFile = function (readme) {
-  fs.readFile("./utils/generateMarkdown", readme, (err) => {
-    if (err) {
-      return console.log(err);
-    }
-
-    console.log("Success!");
-  });
-  fs.writeFile("./READMEtest.md", readme, (err) => {
-    if (err) {
-      return console.log(err);
-    }
-
-    console.log("Success!");
-  });
-};
-
-// TODO: Create a function to initialize app
-// function init(questions) {
-//     inquirer.prompt(questions)
-//     .then((userData) => {
-//       // pass data into renderLicenseBadge
-//       renderLicenseBadge(userData);
-//       // call writeToFile function with file name and calling generateMarkdown function
-//       writeToFile("./READMEtest.md", generateMarkdown(userData));
-//     });
-//   }
-
-// Function call to initialize app
-// init()
-promptUser();
+  };
+  
+  // inquirer
+  // .then((projectData) => {
+    //   portfolioData.projects.push(projectData);
+    //   if (projectData.confirmAddProject) {
+      //     return promptProject(portfolioData);
+      //   } else {
+        //     return portfolioData;
+        //   }
+        // });
+        function writeToReadme(fileName, readme){
+          fs.writeFile(fileName, readme, err => {
+            if (err) throw err;
+            console.log("New Readme File Created!")
+          })
+        }
+        
+        promptUser()
+        .then((readMe) => {
+          writeToReadme("READMEtest.md", generateMarkdown(readMe))
+          // return generateMarkdown(readMe);
+        });
+        // const readAndWriteFile = function (readme) {
+        //   fs.readFile("./utils/generateMarkdown", readme, (err) => {
+        //     if (err) {
+        //       return console.log(err);
+        //     }
+            
+        //     console.log("Success!");
+        //   });
+        //   fs.writeFile("./READMEtest.md", readme, (err) => {
+        //     if (err) {
+        //       return console.log(err);
+        //     }
+            
+        //     console.log("Success!");
+        //   });
+        // };
+        
+        // TODO: Create a function to initialize app
+        // function init(questions) {
+          //     inquirer.prompt(questions)
+          //     .then((userData) => {
+            //       // pass data into renderLicenseBadge
+            //       renderLicenseBadge(userData);
+            //       // call writeToFile function with file name and calling generateMarkdown function
+            //       writeToFile("./READMEtest.md", generateMarkdown(userData));
+            //     });
+            //   }
+            
+            // Function call to initialize app
+            // init()

@@ -19,7 +19,7 @@ let email = (readMe.email) ? readMe.email : "";
 let website = (readMe.website) ? readMe.website : "";
 
 
-  const title = readMe.name;
+  const title = readMe.title;
   const description = readMe.description;
   const installationInstructions = readMe.installation;
   const usage = readMe.usage;
