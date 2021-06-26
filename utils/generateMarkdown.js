@@ -35,6 +35,7 @@ let website = (readMe.website) ? readMe.website : "";
 
   const title = readMe.title;
   const description = readMe.description;
+  const technologies = readMe.technologies
   const installationInstructions = readMe.installation;
   const usage = readMe.usage;
   const tests = readMe.tests
@@ -53,10 +54,15 @@ let website = (readMe.website) ? readMe.website : "";
 
   ## Table of Contents
 
+  - [Technologies](#technologies)
   - [Installation Instructions](#installation-instructions)
   - [Usage](#usage)
   - [Tests](#tests)
   - [Questions](#questions)
+
+  ## Technologies 
+
+  ${technologies}
 
   ## Installation Instructions
 

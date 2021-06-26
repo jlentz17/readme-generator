@@ -17,34 +17,48 @@ const promptUser = () => {
   //     userData.projects = [];
   //   }
   return inquirer
-    .prompt([
-      {
-        type: "input",
-        name: "title",
-        message: "What is the title of your app? (Required)",
-        validate: (appInput) => {
-          if (appInput) {
-            return true;
-          } else {
-            console.log("You need to enter the name of your app!");
-            return false;
-          }
-        },
+  .prompt([
+    {
+      type: "input",
+      name: "title",
+      message: "What is the title of your app? (Required)",
+      validate: (appInput) => {
+        if (appInput) {
+          return true;
+        } else {
+          console.log("You need to enter the name of your app!");
+          return false;
+        }
       },
-      {
-        type: "input",
-        name: "description",
-        message: "Provide a description of the app. (Required)",
-        validate: (descriptionInput) => {
-          if (descriptionInput) {
-            return true;
-          } else {
-            console.log("You need to enter an app description!");
-            return false;
-          }
-        },
+    },
+    {
+      type: "input",
+      name: "description",
+      message: "Provide a description of the app. (Required)",
+      validate: (descriptionInput) => {
+        if (descriptionInput) {
+          return true;
+        } else {
+          console.log("You need to enter an app description!");
+          return false;
+        }
       },
-      {
+    },
+    {
+      type: "checkbox",
+      name: "technologies",
+      message: "What did you use for this project? (Check all that apply)",
+      choices: [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "ES6",
+        "jQuery",
+        "Bootstrap",
+        "Node",
+      ],
+    },
+    {
         type: "input",
         name: "installation",
         message: "What are the installation instructions? (Required)",
@@ -186,20 +200,6 @@ const promptUser = () => {
             return false;
           }
         },
-      },
-      {
-        type: "checkbox",
-        name: "languages",
-        message: "What did you this project with? (Check all that apply)",
-        choices: [
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "ES6",
-          "jQuery",
-          "Bootstrap",
-          "Node",
-        ],
       },
     ])
   };
