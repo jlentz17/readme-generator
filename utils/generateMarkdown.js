@@ -72,7 +72,7 @@ function generateMarkdown(readMe) {
   
   # ${title}
 
-  ${renderLicenseBadge(readMe.license)}
+  ${renderLicenseBadge(readMe.badges)}
 
 
   ## Description
@@ -109,16 +109,16 @@ function generateMarkdown(readMe) {
   Do you have any thing you'd like to contribute? Or have any questions for me?
   Contact Me:
 
-  ${github}
+  ${readMe.gitHub}
 
-  ${email}
+  ${readMe.email}
 
-  ${website}
+  ${readMe.website}
 
   ## License
-  ${renderLicenseLink(readMe.license)}
+  ${renderLicenseLink(readMe.badges)}
 
-  ${renderLicenseSection(readMe.license)}
+  ${renderLicenseSection(readMe.badges)}
 `
 
 };

@@ -116,19 +116,8 @@ const promptUser = () => {
       {
         type: "input",
         name: "gitHub",
-        message: "Github profile: (Required)",
-        when: function (prompt) {
-          validate: (gitPortfolioInput) => {
-            if (gitPortfolioInput) {
-              return prompt.shareGithub;
-              //   return true;
-            } else {
-              console.log("You need to enter a GitHub link!");
-              return false;
-            }
-          };
-        },
-      },
+        message: "Github profile: "
+      },  
       {
         type: "confirm",
         name: "shareEmail",
@@ -145,23 +134,12 @@ const promptUser = () => {
       {
         type: "input",
         name: "email",
-        message: "Email: (Required)",
-        when: function (prompt) {
-          validate: (gitPortfolioInput) => {
-            if (gitPortfolioInput) {
-              return prompt.shareEmail;
-              //   return true;
-            } else {
-              console.log("You need to enter an email address!");
-              return false;
-            }
-          };
-        },
+        message: "Email: ",
       },
       {
         type: "confirm",
         name: "shareWebsite",
-        message: "Share your website? (Required)",
+        message: "Share the Github profiles of the contributers?",
         validate: (websiteInput) => {
           if (websiteInput) {
             return true;
@@ -174,18 +152,7 @@ const promptUser = () => {
       {
         type: "input",
         name: "website",
-        message: "Website: (Required)",
-        when: function (prompt) {
-          validate: (websiteInput) => {
-            if (websiteInput) {
-              return prompt.shareWebsite;
-              //   return true;
-            } else {
-              console.log("You need to enter an email address!");
-              return false;
-            }
-          };
-        },
+        message: "Website: ",
       },
       {
         type: "list",
