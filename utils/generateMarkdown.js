@@ -2,25 +2,52 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === "MIT") {
-    return `![MIT Badge]()`
+    return `![MIT Badge]()`;
   } else if (license === "Apache License 2.0") {
-    return `![Apache License 2.0]()`
+    return `![Apache License 2.0]()`;
   } else if (license === "GNU General Public License 3.0") {
-    return `![GNU General Public License 3.0]()`
+    return `![GNU General Public License 3.0]()`;
   } else if (license === "BSD 3-Clause License") {
-    return `![BSD 3-Clause License]()`
+    return `![BSD 3-Clause License]()`;
   } else {
-    return "";
+    return " ";
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license === "MIT") {
+    return `[MIT License]()`;
+  } else if (license === "Apache License 2.0") {
+    return `[Apache License 2.0]()`;
+  } else if (license === "GNU General Public License 3.0") {
+    return `[GNU Gdeneral Public License 3.0]()`;
+  } else if (license === "BSD 3-Clause License") {
+    return `[BSD 3-Clause License]()`;
+  } else {
+    return " ";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
+  if (license === "MIT") {
+    return `Copyright (c) 2021`;
+  } else if (license === "Apache 2.0") {
+    return `Apache License 
+    Version 2.0 January 2004
+    http;//www.apache.org/licenses/`
+  } else if (license === "GNU General Public License 3.0") {
+    rerturn `GNU General Public License 3.0
+    Version 3, 29 June 2007`
+  } else if (license === "BSD 3-Clause License") {
+    return `BSD 3-Clause License
+    Copyright (c) 2021`
+  } else {
+    return " "
+  }
 }
 
 // TODO: Create a function to generate markdown for README
