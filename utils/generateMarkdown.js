@@ -2,13 +2,13 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === "MIT") {
-    return `![MIT Badge]()`;
+    return `![MIT Badge](https://img.shields.io/badge/License-MIT-brightgreen)`;
   } else if (license === "Apache License 2.0") {
-    return `![Apache License 2.0]()`;
+    return `![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`;
   } else if (license === "GNU General Public License 3.0") {
-    return `![GNU General Public License 3.0]()`;
+    return `![GNU General Public License 3.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`;
   } else if (license === "BSD 3-Clause License") {
-    return `![BSD 3-Clause License]()`;
+    return `![BSD 3-Clause License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`;
   } else {
     return " ";
   }
@@ -18,13 +18,13 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === "MIT") {
-    return `[MIT License]()`;
+    return `[MIT License](https://opensource.org/licenses/MIT)`;
   } else if (license === "Apache License 2.0") {
-    return `[Apache License 2.0]()`;
+    return `[Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`;
   } else if (license === "GNU General Public License 3.0") {
-    return `[GNU Gdeneral Public License 3.0]()`;
+    return `[GNU Gdeneral Public License 3.0](https://www.gnu.org/licenses/gpl-3.0)`;
   } else if (license === "BSD 3-Clause License") {
-    return `[BSD 3-Clause License]()`;
+    return `[BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)`;
   } else {
     return " ";
   }
@@ -55,9 +55,9 @@ function renderLicenseSection(license) {
 
 
 function generateMarkdown(readMe) {
-let github = (readMe.github) ? `github.com/${readMe.github}` : "";
-let email = (readMe.email) ? readMe.email : "";
-let website = (readMe.website) ? readMe.website : "";
+  let github = (readMe.github) ? `github.com/${readMe.github}` : "";
+  let email = (readMe.email) ? readMe.email : "";
+  let website = (readMe.website) ? readMe.website : "";
 
 
   const title = readMe.title;
@@ -71,6 +71,8 @@ let website = (readMe.website) ? readMe.website : "";
   return `
   
   # ${title}
+
+  ${renderLicenseBadge(readMe.license)}
 
 
   ## Description
@@ -112,6 +114,11 @@ let website = (readMe.website) ? readMe.website : "";
   ${email}
 
   ${website}
+
+  ## License
+  ${renderLicenseLink(readMe.license)}
+
+  ${renderLicenseSection(readMe.license)}
 `
 
 };
