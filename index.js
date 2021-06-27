@@ -117,10 +117,10 @@ const promptUser = () => {
         type: "input",
         name: "gitHub",
         message: "Github profile: (Required)",
-        when: function (answer) {
+        when: function (prompt) {
           validate: (gitPortfolioInput) => {
             if (gitPortfolioInput) {
-              return answer.shareGithub;
+              return prompt.shareGithub;
               //   return true;
             } else {
               console.log("You need to enter a GitHub link!");
@@ -146,10 +146,10 @@ const promptUser = () => {
         type: "input",
         name: "email",
         message: "Email: (Required)",
-        when: function (answer) {
+        when: function (prompt) {
           validate: (gitPortfolioInput) => {
             if (gitPortfolioInput) {
-              return answer.shareEmail;
+              return prompt.shareEmail;
               //   return true;
             } else {
               console.log("You need to enter an email address!");
@@ -175,10 +175,10 @@ const promptUser = () => {
         type: "input",
         name: "website",
         message: "Website: (Required)",
-        when: function (answer) {
+        when: function (prompt) {
           validate: (websiteInput) => {
             if (websiteInput) {
-              return answer.shareWebsite;
+              return prompt.shareWebsite;
               //   return true;
             } else {
               console.log("You need to enter an email address!");
