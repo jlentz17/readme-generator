@@ -55,9 +55,9 @@ function renderLicenseSection(license) {
 
 
 function generateMarkdown(readMe) {
-  let github = (readMe.github) ? `github.com/${readMe.github}` : "";
-  let email = (readMe.email) ? readMe.email : "";
-  let website = (readMe.website) ? readMe.website : "";
+  let gitHub = readMe.gitHub ? `GitHub: github.com/${readMe.gitHub}` : "";
+  let email = readMe.email ? `Email: ${readMe.email}` : "";
+  let website = readMe.website ? `Website: ${readMe.website}` : "";
 
 
   const title = readMe.title;
@@ -109,11 +109,11 @@ function generateMarkdown(readMe) {
   Do you have any thing you'd like to contribute? Or have any questions for me?
   Contact Me:
 
-  ${readMe.gitHub}
+  ${gitHub}
 
-  ${readMe.email}
+  ${email}
 
-  ${readMe.website}
+  ${website}
 
   ## License
   ${renderLicenseLink(readMe.badges)}
