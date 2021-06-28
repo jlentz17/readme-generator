@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "jest": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git@gitgit@github.com:jlentz17/jest-another-rpg.git"
+    "url": "git@github.com:jlentz17/jest-another-rpg.git"
   },
   "author": "",
   "license": "ISC",
