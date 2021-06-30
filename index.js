@@ -66,7 +66,7 @@ const promptUser = () => {
         type: "input",
         name: "usage",
         message:
-          "Provide a examples and instructions for your apps use (Required)",
+          "Provide instructions for your apps use (Required)",
         validate: (usageInput) => {
           if (usageInput) {
             return true;

@@ -1,13 +1,13 @@
 
   
-  # dh
+  # I don't know
 
   ![MIT Badge](https://img.shields.io/badge/License-MIT-brightgreen)
 
 
   ## Description
 
-  hd
+  who knows?
 
 
 
@@ -21,29 +21,29 @@
 
   ## Technologies 
 
-  JavaScript
+  JavaScript,HTML,CSS,Node
 
   ## Installation Instructions
 
-  hhd
+  install node and inquirer package
 
   ## Usage
 
-  hd
+  other install instructions
 
   ## Tests
 
-  jdh
+  all tests passed 100%
 
   ## Questions
   Do you have any thing you'd like to contribute? Or have any questions for me?
-  ### Contact Me:
+  Contact Me:
 
-  hhad
+  GitHub: github.com/jlentz17
 
-  jdjd
+  Email: jlentz17@gmail.com
 
-  hsajdjdas
+  Website: amazon.com
 
   ## License
   [MIT License](https://opensource.org/licenses/MIT)
