@@ -2,8 +2,6 @@
 
   ![license](https://img.shields.io/badge/License-MIT-blue.svg)
 
-   ![example-gif](https://github.com/.gif)
-
   ## Table of Contents
 
   
