@@ -27,6 +27,8 @@ Clone to local repository.
   ## Usage 
 Node.js, and a code-editor such as Visual Studio Code are required.
 
+[Walkthrough Video](https://youtu.be/UVGme0XiDfg)
+
   ## Questions 
   
 * [Send me an email](mailto:jlentz17@gmail.com)
